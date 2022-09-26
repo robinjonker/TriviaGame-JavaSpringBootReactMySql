@@ -1,5 +1,7 @@
 package com.example.demo.questions_trivia;
 
+import com.example.demo.log_trivia.LogRepository;
+import com.example.demo.log_trivia.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +10,10 @@ import java.util.Random;
 
 @Service
 public class TriviaService {
+
+    @Autowired
+    private LogService logService;
+
     private final TriviaRepository triviaRepository;
 
     @Autowired
@@ -26,11 +32,27 @@ public class TriviaService {
         return trivia.getQuestion() + trivia.getOptions();
     }
 
-    public String getRandomQuestion() {
+    public int getRandomWithExclusion(Random rnd, int start, int end, int... exclude) {
+        int random = start + rnd.nextInt(end - start + 1 - exclude.length);
+        for (int ex : exclude) {
+            if (random < ex) {
+                break;
+            }
+            random++;
+        }
+        return random;
+    }
+
+    public String getRandomQuestion(Long studentId) {
+        System.out.println("Something was printed "+logService.getLogStudent(studentId));
+        int[] ex = { 0 }; // id's of questions attempted by student previously
         int size = triviaRepository.findAll().size();
+        if (ex.length == size) {
+            ex = new int[0];
+        }
+        int val = getRandomWithExclusion(new Random(), 0, size, ex);
+        Long id = Long.valueOf(val);
         if (size > 0) {
-            Random random = new Random();
-            Long id = random.nextLong(size)+1;
             Trivia trivia = triviaRepository.findById(id)
                     .orElseThrow(() -> new IllegalStateException(
                             "student with id: "+id+" does not exist"));

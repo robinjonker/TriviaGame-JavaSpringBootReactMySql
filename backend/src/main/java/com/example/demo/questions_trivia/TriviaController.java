@@ -28,9 +28,7 @@ public class TriviaController {
         return triviaService.getTriviaQuestion(triviaId);
     }
 
-    @GetMapping(path = "random")
-    public String getRandomQuestion() {
-        return triviaService.getRandomQuestion();
-    }
+    @GetMapping(path = "random/{studentId}")
+    public String getRandomQuestion(@PathVariable("studentId") Long studentId) { return triviaService.getRandomQuestion(studentId);}
 
 }
