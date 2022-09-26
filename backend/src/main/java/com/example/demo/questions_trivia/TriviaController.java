@@ -2,6 +2,7 @@ package com.example.demo.questions_trivia;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,16 @@ public class TriviaController {
     @GetMapping
     public List<Trivia> getTrivia() {
         return triviaService.getTrivia();
+    }
+
+    @GetMapping(path = "{triviaId}")
+    public String getTriviaQuestion(@PathVariable("triviaId") Long triviaId) {
+        return triviaService.getTriviaQuestion(triviaId);
+    }
+
+    @GetMapping(path = "random")
+    public String getRandomQuestion() {
+        return triviaService.getRandomQuestion();
     }
 
 }

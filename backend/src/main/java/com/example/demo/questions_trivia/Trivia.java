@@ -1,5 +1,7 @@
 package com.example.demo.questions_trivia;
 
+import com.example.demo.options_trivia.Options;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,8 +21,12 @@ public class Trivia {
     private String category;
     private String topic;
     private String question;
-    private String options;
     private String answer;
+
+    // trivia options OF possible answers
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_options_id", referencedColumnName = "id")
+    private Options options;
 
     public Trivia() {
     }
@@ -29,7 +35,7 @@ public class Trivia {
                   String category,
                   String topic,
                   String question,
-                  String options,
+                  Options options,
                   String answer) {
         this.id = id;
         this.category = category;
@@ -42,7 +48,7 @@ public class Trivia {
     public Trivia(String category,
                   String topic,
                   String question,
-                  String options,
+                  Options options,
                   String answer) {
         this.category = category;
         this.topic = topic;
@@ -83,11 +89,11 @@ public class Trivia {
         this.question = question;
     }
 
-    public String getOptions() {
+    public Options getOptions() {
         return options;
     }
 
-    public void setOptions(String options) {
+    public void setOptions(Options options) {
         this.options = options;
     }
 
