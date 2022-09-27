@@ -15,9 +15,6 @@ import static org.aspectj.runtime.internal.Conversions.intValue;
 @Service
 public class TriviaService {
 
-    @Autowired
-    private LogService logService;
-
     private final TriviaRepository triviaRepository;
 
     @Autowired
@@ -84,24 +81,28 @@ public class TriviaService {
     }
 
     @Autowired
+    private LogService logService;
+
+    @Autowired
     private OptionsService optionsService;
 
     public String getRandomQuestion(Long studentId) {
         List<Log> log = logService.getLogStudent(studentId);
         List<Integer> ex = new ArrayList<>();
         int size = triviaRepository.findAll().size();
-        if (log.toArray().length != size) {
+        if (log.toArray().length < size) {
             for (Log x : log) {
                 Long vals = x.getQuestion_id();
                 ex.add(intValue(vals));
             }
+            Collections.sort(ex);
         }
         int val = getRandomWithExclusion(new Random(), 1, size, ex);
         Long id = (long) val;
         if (size > 0) {
             Trivia trivia = triviaRepository.findById(id)
                     .orElseThrow(() -> new IllegalStateException(
-                            "student with id: "+id+" does not exist"));
+                            "question with id: "+id+" does not exist"));
             List options = optionsService.getOptionsQuestion(id);
             return trivia.getQuestion() + " " + options;
         }

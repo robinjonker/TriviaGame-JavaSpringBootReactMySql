@@ -3,7 +3,6 @@ package com.example.demo.log_trivia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -20,6 +19,10 @@ public class LogService {
     }
 
     public  List<Log> getLogStudent(Long studentId) {
-        return logRepository.findAllById(Collections.singleton(studentId));
+        return logRepository.findAllByStudent_id(studentId);
+    }
+
+    public void addNewLog(Log log) {
+        logRepository.save(log);
     }
 }
