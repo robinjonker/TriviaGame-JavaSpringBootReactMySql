@@ -36,8 +36,24 @@ public class TriviaConfig {
                     "2"
             );
 
+            Trivia youngmens = new Trivia(
+                    "Sport",
+                    "Tennis",
+                    "The youngest mens grand slam winner in the open era?",
+                    options,
+                    "1"
+            );
+
+            Trivia youngwoman = new Trivia(
+                    "Sport",
+                    "Tennis",
+                    "The youngest woman's grand slam winner in the open era?",
+                    options,
+                    "4"
+            );
+
             repository.saveAll(
-                    List.of(mostmens, mostwoman)
+                    List.of(mostmens, mostwoman, youngmens, youngwoman)
             );
         };
     }

@@ -1,10 +1,8 @@
 package com.example.demo.questions_trivia;
 
+import com.example.demo.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +24,25 @@ public class TriviaController {
     @GetMapping(path = "{triviaId}")
     public String getTriviaQuestion(@PathVariable("triviaId") Long triviaId) {
         return triviaService.getTriviaQuestion(triviaId);
+    }
+
+    @PostMapping
+    public void addNewTriviaQuestion(@RequestBody Trivia trivia) {
+        triviaService.addNewTriviaQuestion(trivia);
+    }
+
+    @DeleteMapping(path ="{triviaId}")
+    public void deleteTriviaQuestion(@PathVariable("triviaId") Long triviaId){
+        triviaService.deleteTriviaQuestion(triviaId);
+    }
+
+    @PutMapping(path ="{triviaId}")
+    public void updateTriviaQuestion(@PathVariable("triviaId") Long triviaId,
+                                @RequestParam(required = false) String category,
+                                 @RequestParam(required = false) String topic,
+                                 @RequestParam(required = false) String question,
+                                 @RequestParam(required = false) String answer){
+        triviaService.updateTriviaQuestion(triviaId, category, topic, question, answer);
     }
 
     @GetMapping(path = "random/{studentId}")

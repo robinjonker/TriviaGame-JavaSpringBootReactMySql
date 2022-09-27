@@ -34,8 +34,24 @@ public class OptionsConfig {
                     trivia
             );
 
+            Options youngmens = new Options(
+                    "1. Chang",
+                    "2. Alcaraz",
+                    "3. Nadal",
+                    "4. Becker",
+                    trivia
+            );
+
+            Options youngwoman = new Options(
+                    "1. Sharapova",
+                    "2. Williams",
+                    "3. Raducanu",
+                    "4. Hingis",
+                    trivia
+            );
+
             repository.saveAll(
-                    List.of(mostmens, mostwoman)
+                    List.of(mostmens, mostwoman, youngmens, youngwoman)
             );
         };
     }
