@@ -29,13 +29,13 @@ public class Log {
 //    @OneToOne
     private Long question_id;
     private Boolean answer_result;
-    private LocalDate date;
+    private String date;
     private String result;
     public Log() {
     }
 
     //Long
-    public Log(Long id, Long student_id, Long question_id, Boolean answer_result, LocalDate date, String result) {
+    public Log(Long id, Long student_id, Long question_id, Boolean answer_result, String date, String result) {
         this.id = id;
         this.student_id = student_id;
         this.question_id = question_id;
@@ -45,7 +45,7 @@ public class Log {
     }
 
     //Long
-    public Log(Long student_id, Long question_id, Boolean answer_result, LocalDate date, String result) {
+    public Log(Long student_id, Long question_id, Boolean answer_result, String date, String result) {
         this.student_id = student_id;
         this.question_id = question_id;
         this.answer_result = answer_result;
@@ -85,11 +85,11 @@ public class Log {
         this.answer_result = answer_result;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

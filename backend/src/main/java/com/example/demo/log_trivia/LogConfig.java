@@ -27,7 +27,7 @@ public class LogConfig {
                     Long.valueOf(1),
                     Long.valueOf(1),
                     Boolean.FALSE,
-                    LocalDate.now(),
+                    LocalDate.now().toString(),
                     "2. Federer"
             );
             repository.saveAll(
