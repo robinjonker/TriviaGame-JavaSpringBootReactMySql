@@ -104,7 +104,7 @@ public class TriviaService {
                     .orElseThrow(() -> new IllegalStateException(
                             "question with id: "+id+" does not exist"));
             List options = optionsService.getOptionsQuestion(id);
-            return trivia.getQuestion() + " " + options;
+            return "Q" + val + ": " + trivia.getQuestion() + " " + options + " " + trivia.getAnswer();
         }
         throw new IllegalStateException("no questions stored");
     }

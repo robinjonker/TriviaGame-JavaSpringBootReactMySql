@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/questions_trivia")
+@CrossOrigin("*") //not for production purposes
 public class TriviaController {
     private final TriviaService triviaService;
 
