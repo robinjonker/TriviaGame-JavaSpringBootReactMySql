@@ -32,7 +32,7 @@ Create a Postgres database named 'triviadb' with username: postgres and password
 
 ## **Note**
 
-Direct your terminal into the frontend folder within the main folder to start the development React server using 'npm start'. In the instance that the localhost:3000 server does not present information. Possibly shut down the build executable of the backend and restart it from within an IDE to have an active instance that communicates with the UI. As the UI is an added option, the build creation was not developed to a high standard for the React app and is solely to showcase random questions and submit POST responses, solely to showcase development.
+Direct your terminal into the frontend folder, backend > src > main > frontend to start the development React server using 'npm start'. In the instance that the localhost:3000 server does not present information. Possibly shut down the build executable of the backend and restart it from within an IDE to have an active instance that communicates with the UI. As the UI is an added option, the build creation was not developed to a high standard for the React app and is solely to showcase random questions and submit POST responses, solely to showcase development.
 
 ## **Next Steps**
 
