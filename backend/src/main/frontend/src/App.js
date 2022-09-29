@@ -121,6 +121,7 @@ const getResult = (randomAnswer, answer) => {
 function App() {
   return (
     <div className="App">
+      Welcome to the Trivia Game!
       <RandomQuestion />
       <InputAns />
       <LogAnswer />
