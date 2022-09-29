@@ -23,7 +23,7 @@ public class Trivia {
     private String question;
     private String answer;
 
-    // trivia options OF possible answers
+    // trivia options of possible answers
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_options_id", referencedColumnName = "id")
     private Options options;

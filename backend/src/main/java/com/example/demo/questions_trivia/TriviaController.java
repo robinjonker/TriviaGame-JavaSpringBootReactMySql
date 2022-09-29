@@ -1,6 +1,5 @@
 package com.example.demo.questions_trivia;
 
-import com.example.demo.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

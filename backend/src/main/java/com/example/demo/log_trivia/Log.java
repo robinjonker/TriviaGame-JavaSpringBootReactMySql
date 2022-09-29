@@ -1,10 +1,6 @@
 package com.example.demo.log_trivia;
 
-import com.example.demo.questions_trivia.Trivia;
-import com.example.demo.student.Student;
-
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table
@@ -21,12 +17,7 @@ public class Log {
     )
 
     private Long id;
-
-    //commented out due to input as null so cant test other stuff with that error
-//    @OneToOne
-//    private Student student_id;
     private Long student_id;
-//    @OneToOne
     private Long question_id;
     private Boolean answer_result;
     private String date;
@@ -34,7 +25,6 @@ public class Log {
     public Log() {
     }
 
-    //Long
     public Log(Long id, Long student_id, Long question_id, Boolean answer_result, String date, String result) {
         this.id = id;
         this.student_id = student_id;
@@ -44,7 +34,6 @@ public class Log {
         this.result = result;
     }
 
-    //Long
     public Log(Long student_id, Long question_id, Boolean answer_result, String date, String result) {
         this.student_id = student_id;
         this.question_id = question_id;
@@ -61,10 +50,10 @@ public class Log {
         this.id = id;
     }
 
-    //Long
     public Long getStudent_id() {
         return student_id;
     }
+
     public void setStudent_id(Long student_id) {
         this.student_id = student_id;
     }

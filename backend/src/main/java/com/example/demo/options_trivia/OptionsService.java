@@ -20,7 +20,7 @@ public class OptionsService {
     }
 
     public List<String> getOptionsQuestion(Long triviaId) {
-        Options options = optionsRepository.findById(triviaId)
+        Options options = optionsRepository.findOptionsById(triviaId)
                 .orElseThrow(() -> new IllegalStateException(
                         "question options with id: "+triviaId+" does not exist"));
         List<String> list = new ArrayList<>();

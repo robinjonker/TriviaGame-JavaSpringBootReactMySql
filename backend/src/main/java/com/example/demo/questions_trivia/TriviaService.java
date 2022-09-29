@@ -27,10 +27,10 @@ public class TriviaService {
     }
 
     public String getTriviaQuestion(Long triviaId) {
-        Trivia trivia = triviaRepository.findById(triviaId)
+        Trivia trivia = triviaRepository.findTriviaById(triviaId)
                 .orElseThrow(() -> new IllegalStateException(
                         "student with id: "+triviaId+" does not exist"));
-        return trivia.getQuestion() + trivia.getOptions();
+        return trivia.getQuestion();
     }
 
     public void addNewTriviaQuestion(Trivia trivia) {
@@ -100,7 +100,7 @@ public class TriviaService {
         int val = getRandomWithExclusion(new Random(), 1, size, ex);
         Long id = (long) val;
         if (size > 0) {
-            Trivia trivia = triviaRepository.findById(id)
+            Trivia trivia = triviaRepository.findTriviaById(id)
                     .orElseThrow(() -> new IllegalStateException(
                             "question with id: "+id+" does not exist"));
             List options = optionsService.getOptionsQuestion(id);
