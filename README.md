@@ -1,16 +1,16 @@
 ## **Trivia Game**
 
-A basic REST API that serves up a random unique trivia question to users. Users will always see unique questions that they have not answered yet unless they have attempted each question. Their answers are stored in a log. The programs deliverables, technical requirements, and building processes and notes are included below.
+A basic REST API that serves up a random unique trivia question to users. Users will always see unique questions that they have not answered yet unless they have attempted each question. Their answers are stored in a log. The program deliverables, technical requirements, and building processes and notes are included below.
 
 ## Deliverables:
 
-- The unique identifier has been pre-assigned based on the assumption, in this example it has been preset to id: 1.
+- The unique identifier has been pre-assigned based on the assumption, in this example, it has been preset to id: 1.
 
 - Each request refresh will generate a random question from the list which excludes answered questions.
 
-- A set of database values have been stored and defined in the database. These can also be within each modules Config file. e.g. TriviaConfig file showcases 4 different questions that have been created.
+- A set of database values have been stored and defined in the database. These can also be within each module's Config file. e.g. TriviaConfig file showcases 4 different questions that have been created.
 
-- Basic tests are included to showcase some CRUD functionality. Due to time constraints not all relevant tests were conducted however the general process is showcased.
+- Basic tests are included to showcase some CRUD functionality. Due to time constraints, not all relevant tests were conducted however the general process is showcased.
 
 ## Technical Requirements:
 
@@ -20,35 +20,35 @@ A basic REST API that serves up a random unique trivia question to users. Users 
 
 - PostgreSQL was the database of choice.
 
-- A very basic UI was created to interact with the REST requests and in order to trigger POST responses in order to log the quations that are attempted.
+- A fundamental UI was created to interact with the REST requests and in order to trigger POST responses in order to log the questions that are attempted.
 
 ## **Getting Started**
 
-- It is assumed you have Postgres and all relevant Java development softwares installed. e.g using IntelliJ
+- It is assumed you have Postgres and all relevant Java development software installed. e.g using IntelliJ
 
 Create a Postgres database named 'triviadb' with username: postgres and password: password. In order to run the program to see the REST API in action, run the .jar executable found in the target file in the backend. This build will automatically create all relevant tables needed within the database. 
 
-- A database dump is included within the database folder. This is not necarssiry if the above step is completed successfully. However, a database dump is provided to allow you to restore the database to its initial condition stored here. The following link will explain how to restore the database from the dump: https://www.educba.com/postgres-dump-database/
+- A database dump is included within the database folder. This is not necessary if the above step is completed successfully. However, a database dump is provided to allow you to restore the database to its initial condition stored here. The following link will explain how to restore the database from the dump: https://www.educba.com/postgres-dump-database/
 
 ## **Note**
 
-Direct your terminal into the frontend folder within the main folder to start the development React server using 'npm start'. In the instance that the localhost:3000 server does not present information. Possibly shutdown the build executable of the backend and restart it from within an IDE to have an active instance that communicates with the UI. As the UI is an added optional, the build creation was not developed to a high standard for the React app and is solely to showcase random question and submit POST responses, solely to showcase development.
+Direct your terminal into the frontend folder within the main folder to start the development React server using 'npm start'. In the instance that the localhost:3000 server does not present information. Possibly shut down the build executable of the backend and restart it from within an IDE to have an active instance that communicates with the UI. As the UI is an added option, the build creation was not developed to a high standard for the React app and is solely to showcase random questions and submit POST responses, solely to showcase development.
 
 ## **Next Steps**
 
-- The next step would be finalising the frontend to have more functioality.
+- The next step would be finalising the frontend to have more functionality.
 
 - Creating a REST interface to manage the different aspects of the API's.
 
-- Hosting the application. Possible methods could be using AWS API Gateway to host the API's along with Lambda functions that triggers on request to interact with the hosted frontend, possibly using S3 buckets.
+- Hosting the application. Possible methods could be using AWS API Gateway to host the API's along with Lambda functions that trigger requests to interact with the hosted frontend, possibly using S3 buckets.
 
 ## **Security consideration**
 
-- As the production is still in development, security has not been prioritised for now. For example the CORS policy allows access from all endpoints instead of adding a proxy to them to manage which will control the access points.
+- As the production is still in development, security has not been prioritised for now. For example, the CORS policy allows access from all endpoints instead of adding a proxy to them to manage and control the access points.
 
-- Spring boot security depedency should be used to manage access and viewpoints.
+- Spring boot security dependency should be used to manage access and viewpoints.
 
-- Within start up, if the user has not logged in, any URL requests will be interrupted.
+- Within start-up, if the user has not logged in, any URL requests will be interrupted.
 
 - All users and their account creations, will have their passwords encrypted (using BCrypt for example) before being stored on the database. 
 
@@ -56,11 +56,6 @@ Direct your terminal into the frontend folder within the main folder to start th
 
 ## **Future scaling**
 
-- Once the application is live and hosted on the cloud, being safely accessible by anyone. The trivia game will need to be further developed. Creating a multiplayer mode where friends can play against each other answers random question within a certain category is functionality that could help drive interest and engagement.
+- Once the application is live and hosted on the cloud, being safely accessible by anyone. The trivia game will need to be further developed. Creating a multiplayer mode where friends can play against each other by answering random questions within a certain category is functionality that could help drive interest and engagement.
 
-- From the development side, hosting the application on a cloud provider such as AWS, Google or Azure for example will enable rapid scalablity. Using AWS for example, a serverless pay-as-you-use architecture can be developed that allows the application to rapidly adjust according to its userbase with extremely low downtime. 
-
-
-
-
-
+- From the development side, hosting the application on a cloud provider such as AWS, Google or Azure for example will enable rapid scalability. Using AWS for example, a serverless pay-as-you-use architecture can be developed that allows the application to rapidly adjust according to its user base with extremely low downtime. 
